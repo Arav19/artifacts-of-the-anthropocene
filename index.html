@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artifacts of the Anthropocene</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: white;
+      font-family: "Times New Roman", serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Red grid background*/
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255,0,0,0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,0,0,0.15) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(255,0,0,0.1) 2px, transparent 2px);
+      background-size: 100% 100px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .title-box {
+      border: 2px solid #ff0000;
+      background: #000;
+      color: #ff0000;
+      text-align: center;
+      padding: 20px;
+      font-size: 3em;
+      margin: 20px auto 10px;
+      width: fit-content;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Subtitl*/
+    .subtitle-box {
+      border: 1.5px solid #ff0000;
+      background: #000;
+      color: #ff0000;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 1.2em;
+      margin: 0 auto 30px;
+      width: fit-content;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* MAIN GRID<<<<*/
+    .collage-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(8, 200px);
+      gap: 5px;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .object {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .object img {
+      max-width: 100%;
+      max-height: 100%;
+      filter: grayscale(100%);
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      animation: spin 60s linear infinite;
+    }
+
+    .object img  {
+      filter: grayscale(0%) drop-shadow(0 0 12px #ff4444);
+      transform: scale(1.2);
+      animation-play-state: paused;
+      z-index: 1000;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+   .object:nth-child(1)  { grid-column: 2;  grid-row: 1; transform: rotate(-5deg); }    /* IMAGE SOURCE: McDonald's website*/
+    .object:nth-child(2)  { grid-column: 5;  grid-row: 1; transform: rotate(8deg); }    /* IMAGE SOURCE: PNGtree*/
+    .object:nth-child(3)  { grid-column: 8;  grid-row: 1; transform: rotate(-12deg); }  /* IMAGE SOURCE: PNGtree*/
+    .object:nth-child(4)  { grid-column: 11; grid-row: 1; transform: rotate(6deg); } /* IMAGE SOURCE: PNGtree*/
+    .object:nth-child(5)  { grid-column: 3;  grid-row: 2; transform: rotate(-10deg); } /* IMAGE SOURCE: Hasbrow toys*/
+    .object:nth-child(6)  { grid-column: 6;  grid-row: 2; transform: rotate(4deg); } /* IMAGE SOURCE: pixabay*/
+    .object:nth-child(7)  { grid-column: 9;  grid-row: 2; transform: rotate(-7deg); } /* IMAGE SOURCE: Wikipedia*/
+    .object:nth-child(8)  { grid-column: 12; grid-row: 2; transform: rotate(15deg); }
+    .object:nth-child(9)  { grid-column: 1;  grid-row: 3; transform: rotate(-3deg); }
+    .object:nth-child(10) { grid-column: 4;  grid-row: 3; transform: rotate(11deg); }
+    .object:nth-child(11) { grid-column: 7;  grid-row: 3; transform: rotate(-9deg); }
+    .object:nth-child(12) { grid-column: 10; grid-row: 3; transform: rotate(5deg); }
+    .object:nth-child(13) { grid-column: 2;  grid-row: 4; transform: rotate(-6deg); }
+    .object:nth-child(14) { grid-column: 5;  grid-row: 4; transform: rotate(9deg); }
+    .object:nth-child(15) { grid-column: 8;  grid-row: 4; transform: rotate(-15deg); }
+    .object:nth-child(16) { grid-column: 11; grid-row: 4; transform: rotate(12deg); }
+    .object:nth-child(17) { grid-column: 3;  grid-row: 5; transform: rotate(-5deg); }
+    .object:nth-child(18) { grid-column: 6;  grid-row: 5; transform: rotate(7deg); }
+    .object:nth-child(19) { grid-column: 9;  grid-row: 5; transform: rotate(-8deg); }
+    .object:nth-child(20) { grid-column: 12; grid-row: 5; transform: rotate(6deg); }
+    .object:nth-child(21) { grid-column: 1;  grid-row: 6; transform: rotate(-12deg); }
+    .object:nth-child(22) { grid-column: 4;  grid-row: 6; transform: rotate(5deg); }
+    .object:nth-child(23) { grid-column: 7;  grid-row: 6; transform: rotate(-6deg); }
+    .object:nth-child(24) { grid-column: 10; grid-row: 6; transform: rotate(10deg); }
+    .object:nth-child(25) { grid-column: 2;  grid-row: 7; transform: rotate(-9deg); }
+    .object:nth-child(26) { grid-column: 5;  grid-row: 7; transform: rotate(14deg); }
+    .object:nth-child(27) { grid-column: 8;  grid-row: 7; transform: rotate(-7deg); }
+    .object:nth-child(28) { grid-column: 11; grid-row: 7; transform: rotate(5deg); }
+    .object:nth-child(29) { grid-column: 3;  grid-row: 8; transform: rotate(-11deg); }
+    .object:nth-child(30) { grid-column: 6;  grid-row: 8; transform: rotate(8deg); }
+    .object:nth-child(31) { grid-column: 9;  grid-row: 8; transform: rotate(-4deg); }
+    .object:nth-child(32) { grid-column: 12; grid-row: 8; transform: rotate(13deg); }
+  </style>
+</head>
+<body>
+  <div class="title-box">Artifacts of the Anthropocene</div>
+  <div class="subtitle-box">Author: ⟟⍜⧫ᓭ ⋮ 𐑊ᔑ⟁⊹ ᒷꖎ⍊  | Date: 8882S-A9</div>
+
+  <div class="collage-container">
+       <!-- main objects + links -->
+    <div class="object"><a href="objects/1.html" target="_blank"><img src="objects/1.png" alt="Object 1"></a></div>
+    <div class="object"><a href="objects/2.html" target="_blank"><img src="objects/2.png" alt="Object 2"></a></div>
+    <div class="object"><a href="objects/3.html" target="_blank"><img src="objects/3.png" alt="Object 3"></a></div>
+    <div class="object"><a href="objects/4.html" target="_blank"><img src="objects/4.png" alt="Object 4"></a></div>
+    <div class="object"><a href="objects/5.html" target="_blank"><img src="objects/5.png" alt="Object 5"></a></div>
+    <div class="object"><a href="objects/6.html" target="_blank"><img src="objects/6.png" alt="Object 6"></a></div>
+    <div class="object"><a href="objects/7.html" target="_blank"><img src="objects/7.png" alt="Object 7"></a></div>
+    <div class="object"><a href="objects/8.html" target="_blank"><img src="objects/8.png" alt="Object 8"></a></div>
+    <div class="object"><a href="objects/9.html" target="_blank"><img src="objects/9.png" alt="Object 9"></a></div>
+    <div class="object"><a href="objects/10.html" target="_blank"><img src="objects/10.png" alt="Object 10"></a></div>
+    <div class="object"><a href="objects/11.html" target="_blank"><img src="objects/11.png" alt="Object 11"></a></div>
+    <div class="object"><a href="objects/12.html" target="_blank"><img src="objects/12.png" alt="Object 12"></a></div>
+    <div class="object"><a href="objects/13.html" target="_blank"><img src="objects/13.png" alt="Object 13"></a></div>
+    <div class="object"><a href="objects/14.html" target="_blank"><img src="objects/14.png" alt="Object 14"></a></div>
+    <div class="object"><a href="objects/15.html" target="_blank"><img src="objects/15.png" alt="Object 15"></a></div>
+    <div class="object"><a href="objects/16.html" target="_blank"><img src="objects/16.png" alt="Object 16"></a></div>
+    <div class="object"><a href="objects/17.html" target="_blank"><img src="objects/17.png" alt="Object 17"></a></div>
+    <div class="object"><a href="objects/18.html" target="_blank"><img src="objects/18.png" alt="Object 18"></a></div>
+    <div class="object"><a href="objects/19.html" target="_blank"><img src="objects/19.png" alt="Object 19"></a></div>
+    <div class="object"><a href="objects/20.html" target="_blank"><img src="objects/20.png" alt="Object 20"></a></div>
+    <div class="object"><a href="objects/21.html" target="_blank"><img src="objects/21.png" alt="Object 21"></a></div>
+    <div class="object"><a href="objects/22.html" target="_blank"><img src="objects/22.png" alt="Object 22"></a></div>
+    <div class="object"><a href="objects/23.html" target="_blank"><img src="objects/23.png" alt="Object 23"></a></div>
+    <div class="object"><a href="objects/24.html" target="_blank"><img src="objects/24.png" alt="Object 24"></a></div>
+    <div class="object"><a href="objects/25.html" target="_blank"><img src="objects/25.png" alt="Object 25"></a></div>
+    <div class="object"><a href="objects/26.html" target="_blank"><img src="objects/26.png" alt="Object 26"></a></div>
+    <div class="object"><a href="objects/27.html" target="_blank"><img src="objects/27.png" alt="Object 27"></a></div>
+    <div class="object"><a href="objects/28.html" target="_blank"><img src="objects/28.png" alt="Object 28"></a></div>
+    <div class="object"><a href="objects/29.html" target="_blank"><img src="objects/29.png" alt="Object 29"></a></div>
+    <div class="object"><a href="objects/30.html" target="_blank"><img src="objects/30.png" alt="Object 30"></a></div>
+    <div class="object"><a href="objects/31.html" target="_blank"><img src="objects/31.png" alt="Object 31"></a></div>
+    <div class="object"><a href="objects/32.html" target="_blank"><img src="objects/32.png" alt="Object 32"></a></div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Object 1 - Artifacts from the Anthropocene</title>       
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: "Times New Roman", serif;
+    color: #ff0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Red grid overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(255,0,0,0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,0,0,0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0.1) 2px, transparent 2px);
+    background-size: 100% 100px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .object-title {
+    border: 2px solid #ff0000;
+    background: #000;
+    color: #ff0000;
+    text-align: center;
+    padding: 20px;
+    font-size: 2.5em;
+    margin: 30px auto 20px;
+    width: fit-content;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Main object */
+  .object-img {
+    max-width: 50%;
+    max-height: 60vh;
+    margin: 20px 0;
+    z-index: 2;
+    position: relative;
+  }
+
+  .description {
+    border: 1.5px solid #ff0000;
+    background: #000;
+    color: #ff0000;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    margin: 20px auto;
+    width: 60%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link {
+    margin: 40px auto;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #ff0000;
+    border: 1.5px solid #ff0000;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link:hover {
+    background: #ff0000;
+    color: #000;
+  }
+
+  /* Floating background grid of other objects */
+  .floating-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 150px;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    pointer-events: none; /* allows clicks to pass through */
+    z-index: 1;
+  }
+
+  .floating-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.3);
+    transition: all 0.3s ease;
+  }
+
+  .floating-grid img:hover {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+  <div class="object-title">Object 3</div>
+
+  <!-- Floating background objects -->
+  <div class="floating-grid">
+    <img src="2.png" alt="Object 2">
+    <img src="3.png" alt="Object 3">
+    <img src="4.png" alt="Object 4">
+    <img src="5.png" alt="Object 5">
+    <img src="6.png" alt="Object 6">
+    <img src="7.png" alt="Object 7">
+    <img src="8.png" alt="Object 8">
+    <img src="9.png" alt="Object 9">
+    <img src="10.png" alt="Object 10">
+    <img src="11.png" alt="Object 11">
+    <img src="12.png" alt="Object 12">
+    <img src="13.png" alt="Object 13">
+    <img src="14.png" alt="Object 14">
+    <img src="15.png" alt="Object 15">
+    <img src="16.png" alt="Object 16">
+    <img src="17.png" alt="Object 17">
+    <img src="18.png" alt="Object 18">
+    <img src="19.png" alt="Object 19">
+    <img src="20.png" alt="Object 20">
+    <img src="21.png" alt="Object 21">
+    <img src="22.png" alt="Object 22">
+    <img src="23.png" alt="Object 23">
+    <img src="24.png" alt="Object 24">
+    <img src="25.png" alt="Object 25">
+    
+
+  </div>
+
+  <!-- Main object -->
+  <img class="object-img" src="3.png" alt="Object 3">
+
+  <div class="description">
+A tubular object with polished surfaces and precise mechanisms. It may have served as a human stress-relief device, though its efficiency is questionable.
+  </div>
+
+  <a class="back-link" href="../index.html">Back to Gallery</a>
+</body>
+</html>
